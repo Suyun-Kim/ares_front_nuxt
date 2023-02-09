@@ -11,17 +11,35 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
+      {
+        hid: 'description',
+        name: 'description',
+        content: ''
+      },
+      {
+        name: 'format-detection',
+        content: 'telephone=no'
+      }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      }
+    ],
+    script: [
+      { src: '//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=392515e8a95c3bbf66e583122b127185' }
     ]
   },
-
-  css: [
-  ],
+  icons: {
+    iconfont: 'mdiSvg'
+  },
+  css: [],
 
   plugins: [
     {
@@ -34,16 +52,20 @@ export default {
 
   buildModules: [
     '@nuxt/typescript-build',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/moment'
   ],
 
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/moment'
+    '@nuxtjs/proxy',
+    '@nuxtjs/moment',
+    'bootstrap-vue/nuxt',
+    'vue-geolocation-api/nuxt'
   ],
 
   axios: {
-    aseURL: 'http://localhost:8081'
+    baseURL: 'http://18.181.246.166:8081'
   },
 
   vuetify: {
@@ -64,6 +86,5 @@ export default {
     }
   },
 
-  build: {
-  }
+  build: {}
 }

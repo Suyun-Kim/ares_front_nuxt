@@ -10,6 +10,7 @@
           LOGIN
         </v-card-title>
         <v-text-field
+          v-model="auth.memberId"
           class="justify-center"
           label="회원이름"
           outlined
@@ -17,6 +18,7 @@
           style="width: 75%"
         />
         <v-text-field
+          v-model="auth.memberPwd"
           :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
           :rules="[rules.required, rules.min]"
           :type="show ? 'text' : 'password'"
@@ -38,9 +40,8 @@
             margin-top: 2.5em;
             margin-bottom: 2.5em;
             font-size: 1.25rem;
-            font-weight: 500;
-          "
-
+            font-weight: 500;"
+          @click="submit"
         >
           로그인
         </v-btn>
@@ -72,7 +73,7 @@ export default class Login extends Vue {
       memberId: this.auth.memberId,
       memberPwd: this.auth.memberPwd
     }
-    this.$store.dispatch('LOGIN', { data })
+    this.$store.dispatch('login', { data })
       .then(
         this.redirect
       )
@@ -82,7 +83,7 @@ export default class Login extends Vue {
   }
 
   redirect () {
-    this.$router.push('/')
+    this.$router.push('/main')
   }
 }
 </script>

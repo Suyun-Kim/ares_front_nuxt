@@ -29,7 +29,7 @@
         fixed
         app
       >
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+        <v-app-bar-nav-icon @click.stop="drawer = !drawer"/>
         <v-toolbar-title>{{ title }}</v-toolbar-title>
         <v-spacer />
       </v-app-bar>
@@ -58,14 +58,30 @@ export default {
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: 'mdi-home',
+          title: '홈',
+          to: '/main'
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          icon: 'mdi-clock',
+          title: '출석체크',
+          to: '/checkIn'
+        },
+        {
+          icon: 'mdi-pencil',
+          title: '공지사항',
+          to: '/'
+
+        },
+        {
+          icon: 'mdi-calendar',
+          title: '경기관리',
+          to: '/match'
+        },
+        {
+          icon: 'mdi-account',
+          title: '마이페이지',
+          to: '/'
         }
       ],
       title: 'ARES'
